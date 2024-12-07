@@ -42,3 +42,17 @@
 #
 # -----------------------------------------------------------------------------
 # Напишите программу ниже:
+
+def counter(price_ob, price_pog, sum_perc, freq, comiss, period):
+    comission = price_ob + (comiss / 100)
+    full_price = price_ob + comission
+    perc_income = sum_perc * (period / freq)
+    income = price_pog + perc_income - full_price
+    if income > 0:
+        fine = income * 0,13
+    else:
+        fine = 0
+    clear_income = (income - fine) / full_price * 100
+    return clear_income
+
+print(counter(int(input('Цена облигации: ')), int(input('Цена погашения: ')),int(input('Сумма купона: ')),int(input('Периодичность выплаты купона (в месяцах): ')),int(input('Комиссия брокера (%): ')), int(input('Период до погашения облигации (в месяцах): '))))
